@@ -1,17 +1,31 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import './TodoList.css'
 
 const TodoList = () => {
   /*const{state, dis} = useContext(TodoContext);*/
   const {state, dispatch} = useContext(TodoContext);
-  return (
-      <div>
+
+    function toggleDone(id) {
+        dispatch({type: 'DONE', id: id});
+    }
+
+    return (
+      <div className="todo-group">
 
       <div>This is the TodoList Component.</div>
         {
-          state.map((todo) => {
-            return <div>{todo.text}</div>
+          state.map(({id,text,done}) => {
+            return (
+                <div
+                    className={`todo-item ${done?'done':''}`}
+                    onClick={()=>toggleDone(id)}
+                >
+                  {text}
+                </div>
+            )
           }
+
           )
         }
       </div>

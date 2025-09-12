@@ -5,5 +5,18 @@ export const initialState = [
 
 // reducer is a pure function that define and gather all state update logic
 export const todoReducer = (state, action) => {
+  switch (action.type) {
+    case 'DONE':
+      return state.map(todo => {
+        if(action.id === todo.id) {
+          const done = !todo.done;
+          return {...todo, done: done};
+        }
+        return todo;
+      })
+    default:
+      throw state;
+
+  }
   return state;
 };
