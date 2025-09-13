@@ -1,4 +1,5 @@
 import {useState} from "react";
+import './TodoGenerator.css'
 
 export function TodoGenerator({dispatch, length}) {
     const [text, setText] = useState("");
@@ -19,11 +20,12 @@ export function TodoGenerator({dispatch, length}) {
 
     return <div>
          <input
+             className="newtodo-input"
              type="text"
              value={text}
              onChange={(e) => setText(e.target.value)}
          />
-            <button onClick={onAddTodo}>
+            <button className="add-btn"onClick={onAddTodo}>
                 add
             </button>
     </div>;

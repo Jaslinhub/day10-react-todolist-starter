@@ -21,7 +21,6 @@ const TodoList = () => {
                     <span>{text}</span>
                   </div>
                   <button className="close-btn" onClick={() => toggleDone(id)}>x</button>
-
                 </div>
             )
           }
