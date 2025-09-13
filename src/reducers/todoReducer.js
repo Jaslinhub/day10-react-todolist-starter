@@ -14,6 +14,8 @@ export const todoReducer = (state, action) => {
         }
         return todo;
       })
+    case 'ADD':
+      return [...state, action.todo];
     default:
       throw state;
 
