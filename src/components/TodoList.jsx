@@ -1,34 +1,18 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import TodoGroup from "./TodoGroup";
 import './TodoList.css'
 
 const TodoList = () => {
   const {state, dispatch} = useContext(TodoContext);
 
-    function toggleDone(id) {
-        dispatch({type: 'DONE', id: id});
-    }
+  function removeTodo(id) {
+    dispatch({type: 'REMOVE', id});
+  }
 
-    return (
-      <div className="todo-group">
-
-      <div>This is the TodoList Component.</div>
-        {
-          state.map(({id,text,done}) => {
-            return (
-                <div className="todo-row" key={id}>
-                  <div className={`todo-item ${done?'done':''}`}>
-                    <span>{text}</span>
-                  </div>
-                  <button className="close-btn" onClick={() => toggleDone(id)}>x</button>
-                </div>
-            )
-          }
-
-          )
-        }
-      </div>
+  return (
+    <TodoGroup todos={state} onClose={removeTodo} />
   );
 }
 
-export default TodoList
+export default TodoList;

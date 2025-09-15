@@ -16,9 +16,15 @@ export const todoReducer = (state, action) => {
       })
     case 'ADD':
       return [...state, action.todo];
+    case 'REMOVE':
+      return state.filter(todo => todo.id !== action.id);
+    case 'LOAD_TODOS': {
+      console.log('Loading todos', action.todos);
+    }
+
+      return [...action.todos];
     default:
-      throw state;
+      return state;
 
   }
-  return state;
 };
