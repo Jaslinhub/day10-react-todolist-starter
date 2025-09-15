@@ -4,26 +4,9 @@ import TodoList from "./components/TodoList";
 import {initialState, todoReducer} from "./reducers/todoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import {TodoGenerator} from "./components/TodoGenerator";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
+import {createBrowserRouter, RouterProvider, useParams} from "react-router";
+import {DefaultLayout} from "./layout/DefaultLayout";
 
-
-function DefaultLayout() {
-    return <>
-    <header>
-        <nav>
-            <ul>
-                <li><NavLink to={'/'}>Home</NavLink></li>
-                <li ><NavLink to={'/todos'}> To do List </NavLink></li>
-                <li><NavLink to={'/about'}>About</NavLink></li>
-            </ul>
-        </nav>
-    </header>
-        <main>
-            <h1>xxx</h1>
-            <Outlet/>
-        </main>
-        </>;
-}
 
 function ErrorPage() {
     return <h1>Error Page</h1>;
