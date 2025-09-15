@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import {getTodos} from "../apis/api";
 import {TodoContext} from "../contexts/TodoContext";
 
-const TodoGroup = () => {
+const TodoGroup = ({todos,onClose}) => {
     const { state,dispatch } = React.useContext(TodoContext);
     useEffect(() => {
         getTodos().then((response) => {
@@ -16,10 +16,11 @@ const TodoGroup = () => {
       <div>This is the TodoList Component.</div>
       {state.map(todo => (
         <TodoItem
+            key={todo.id}
             id={todo.id}
             text={todo.text}
             done={todo.done}
-            onClose={(id) => dispatch({type: 'REMOVE', id})}
+            onClose={onClose}
              />
       ))}
     </div>

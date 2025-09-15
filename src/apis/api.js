@@ -11,3 +11,11 @@ export const getTodos = async () => {
 export const addTodo = async (todo) => {
     return await instance.post('/todos', todo);
 }
+
+export const deleteTodo = async (id) => {
+    return await instance.delete(`/todos/${id}`);
+}
+
+export const updateTodo = async (id,done) => {
+    return await instance.put(`/todos/${id}`, {done:done});
+}
