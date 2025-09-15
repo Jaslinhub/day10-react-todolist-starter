@@ -3,7 +3,6 @@ import TodoItem from "./TodoItem";
 import {getTodos} from "../apis/api";
 import {TodoContext} from "../contexts/TodoContext";
 import {TodoGenerator} from "./TodoGenerator";
-import {Card, List} from "antd";
 
 const TodoGroup = ({todos, onClose}) => {
     const {state, dispatch} = React.useContext(TodoContext);
@@ -13,6 +12,8 @@ const TodoGroup = ({todos, onClose}) => {
             dispatch({type: 'LOAD_TODOS', todos: response.data})
         });
     }, []);
+
+
     return (
         <div className="todo-group">
             <div>This is the TodoList Component.</div>
@@ -24,8 +25,8 @@ const TodoGroup = ({todos, onClose}) => {
                     done={todo.done}
                     onClose={onClose}
                 />
-
             ))}
+
 
             <TodoGenerator dispatch={dispatch} length={state.length}/>
         </div>

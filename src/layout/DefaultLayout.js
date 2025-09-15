@@ -1,6 +1,6 @@
 import {NavLink, Outlet} from "react-router";
 import {Layout, Menu} from "antd";
-import {FormOutlined, HomeOutlined, QuestionCircleOutlined,} from '@ant-design/icons';
+import {FormOutlined, HomeOutlined, QuestionCircleOutlined, EyeOutlined} from '@ant-design/icons';
 
 const items = [
     {
@@ -12,6 +12,11 @@ const items = [
         label: <NavLink to={'/todos'}> To do List </NavLink>,
         key: 'todos',
         icon: <FormOutlined />
+    },
+    {
+        label: <NavLink to={'/todos/1'}>To do Detail</NavLink>,
+        key: 'tododetail',
+        icon: <EyeOutlined />
     },
     {
         label: <NavLink to={'/about'}>About</NavLink>,
