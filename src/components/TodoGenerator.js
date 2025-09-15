@@ -1,6 +1,7 @@
 import {useState} from "react";
 import './TodoGenerator.css'
 import {addTodo} from "../apis/api";
+import {Button, Input,Space} from "antd";
 
 export function TodoGenerator({dispatch, length}) {
     const [text, setText] = useState("");
@@ -30,7 +31,7 @@ export function TodoGenerator({dispatch, length}) {
     }
 
     return <div>
-         <input
+    {/*     <Input
              className="newtodo-input"
              type="text"
              value={text}
@@ -39,5 +40,13 @@ export function TodoGenerator({dispatch, length}) {
             <button className="add-btn" onClick={handleSubmit}>
                 add
             </button>
+        <Button type="primary" onClick={handleSubmit}>add</Button>*/}
+
+        <Space.Compact style={{ width: '100%' }}>
+            <Input type="text"
+                   value={text}
+                   onChange={(e) => setText(e.target.value)} />
+            <Button type="primary" onClick={handleSubmit}>add</Button>
+        </Space.Compact>
     </div>;
 }

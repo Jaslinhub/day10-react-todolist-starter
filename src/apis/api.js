@@ -19,3 +19,6 @@ export const deleteTodo = async (id) => {
 export const updateTodo = async (id,done) => {
     return await instance.put(`/todos/${id}`, {done:done});
 }
+export const editTodo = async (id,text) => {
+    return await instance.put(`/todos/${id}`, {text:text});
+}

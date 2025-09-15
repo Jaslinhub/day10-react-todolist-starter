@@ -53,8 +53,10 @@ function App() {
     <div className="App">
         <div>
             <TodoContext.Provider value={value}>
-            <RouterProvider router={router}></RouterProvider>
-                <TodoGenerator dispatch={dispatch} length={state.length}/>
+            <RouterProvider router={router}>
+
+            </RouterProvider>
+
             </TodoContext.Provider>
         </div>
      {/* <TodoContext.Provider value={value}>
