@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://68c78c8d5d8d9f514732228d.mockapi.io/api/',
+    /*baseURL: 'https://68c78c8d5d8d9f514732228d.mockapi.io/api/',*/
+    baseURL: 'http://localhost:8080',
 });
 
 export const getTodos = async () => {
