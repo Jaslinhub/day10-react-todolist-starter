@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import './TodoList.css';
 import {TodoContext} from "../contexts/TodoContext";
-import {editTodo, updateTodo} from "../apis/api";
+import {deleteTodo, editTodo, updateTodo} from "../apis/api";
 import {Button, Input, Modal} from "antd";
 import {CloseCircleOutlined, CloseOutlined, EditOutlined} from "@ant-design/icons";
 
@@ -24,7 +24,10 @@ const TodoItem = ({id, text, done, onClose}) => {
         setEditText(text);
         setIsModalOpen(true);
     }
-
+    const removeTodo=async (id) =>{
+        const response=await deleteTodo(id);
+        dispatch({type: 'REMOVE', id: id});
+    }
 
     function handleCancel() {
         setIsModalOpen(false);
@@ -38,7 +41,7 @@ const TodoItem = ({id, text, done, onClose}) => {
             <Button type="default" shape="default" onClick={showEditModal}>
                 <EditOutlined/>
             </Button>
-            <Button type="default" shape="default" onClick={() => onClose(id)}>
+            <Button type="default" shape="default" onClick={() => removeTodo(id)}>
                 <CloseOutlined/>
             </Button>
             <Modal
